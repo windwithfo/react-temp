@@ -3,16 +3,18 @@
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
+import 'babel-polyfill';
 import 'assets/style/common';
-import React           from 'react';
-import { createStore } from 'redux';
-import Routes          from './routes';
-import ReactDom        from 'react-dom';
-import reducers        from './reducers';
-import { Provider }    from 'react-redux';
+import React             from 'react';
+import Routes            from './routes';
+import ReactDom          from 'react-dom';
+import reducers          from './reducers';
+import { Provider }      from 'react-redux';
+import promiseMiddleware from 'redux-promise';
+import { createStore, applyMiddleware }     from 'redux';
 import { NavLink, BrowserRouter as Router } from 'react-router-dom';
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(promiseMiddleware));
 
 function Page() {
   const supportsHistory = 'pushState' in window.history;
