@@ -38,7 +38,7 @@ compiler.apply(new webpack.ProgressPlugin(function (percentage) {
 
 app.use(middleware);
 app.use(serve(path.join(__dirname, './mock')));
-app.use(serve(path.join(__dirname, '../assets')));
+app.use(serve(path.join(__dirname, './assets')));
 
 app.use(async (ctx, next) => {
   const start = new Date();
