@@ -3,10 +3,14 @@
  * @author dongkunshan(windwithfo@yeah.net)
  */
 import React     from 'react';
-import Home      from 'page/home/home';
-import Page1     from 'page/page1/page1';
-import Page2     from 'page/page2/page2';
+import Home      from 'view/home/home';
+import Page1     from 'view/page1/page1';
+import Page2     from 'view/page2/page2';
 import { Route } from 'react-router-dom';
+
+// const Home = import('view/home/home');
+// const Page1 = import('view/page1/page1');
+// const Page2 = import('view/page2/page2');
 
 function Routes() {
   return (

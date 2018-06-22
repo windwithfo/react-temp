@@ -1,6 +1,6 @@
-koa2-react
+react-temp
 ===
-A porject with koa2,react and redux
+A porject as template for cli
 
 Usage Example
 ===

@@ -4,7 +4,7 @@
  */
 
 import './style';
-import React from 'react';
+import React       from 'react';
 import action      from './action';
 import { connect } from 'react-redux';
 

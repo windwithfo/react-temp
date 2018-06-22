@@ -3,9 +3,15 @@
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
+import path from 'path';
+
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
+
 let pages = {
   // entry
-  home: 'pages/index.jsx'
+  home: resolve('index.jsx')
 };
 
 let vendors = {

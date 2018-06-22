@@ -4,7 +4,7 @@
  */
 
 import 'babel-polyfill';
-import 'assets/style/common';
+import 'asset/style/common';
 import React             from 'react';
 import Routes            from './routes';
 import ReactDom          from 'react-dom';
