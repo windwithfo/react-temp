@@ -100,7 +100,7 @@ const webpackConfig = merge(baseConfig, {
     }),
     ...(config.dev.useStylelint ? [new Linter({
       configFile: '.stylelintrc.js',
-      files: ['views/**/*.vue', 'assets/**/*.less'],
+      files: ['src/**/*.less', 'srcs/**/*.jsx'],
       ignorePath: 'node_modules/**',
       syntax: 'less'
     })] : [])
