@@ -3,7 +3,6 @@
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
-import './style';
 import React       from 'react';
 import action      from './action';
 import { connect } from 'react-redux';
@@ -22,6 +21,12 @@ class Page extends React.Component {
         <p className="title">{text}</p>
         <p>By Emiya</p>
         <p>page say: {msg}</p>
+
+        <style jsx>{`
+          .title {
+            color: #f0f;
+          }
+        `}</style>
       </div>
     );
   }

@@ -5,6 +5,13 @@
     "stage-0"
   ],
   "plugins": [
+    [
+      "styled-jsx/babel",
+      {
+        "optimizeForSpeed": true,
+        "plugins": ["styled-jsx-plugin-less"]
+      }
+    ],
     ["import", {
       "libraryName": "antd",
         "style": "true"

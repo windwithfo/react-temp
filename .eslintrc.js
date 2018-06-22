@@ -32,8 +32,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     // 缩进风格
     'indent': [1, 2, {
-      'SwitchCase': 1,
-      'MemberExpression': 0
+      'SwitchCase': 1
     }],
     // 语句强制分号结尾
     'semi': [1, 'always'],

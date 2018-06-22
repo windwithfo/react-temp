@@ -3,7 +3,6 @@
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
-import './style';
 import React from 'react';
 
 function Page(props) {
@@ -14,6 +13,12 @@ function Page(props) {
       <p>By Emiya</p>
       <p>page say: page2</p>
       <p>id is: {id}</p>
+
+      <style jsx>{`
+        .title {
+          color: #ff0;
+        }
+      `}</style>
     </div>
   );
 }
