@@ -11,8 +11,14 @@ import ReactDom          from 'react-dom';
 import reducers          from './reducers';
 import { Provider }      from 'react-redux';
 import promiseMiddleware from 'redux-promise';
-import { createStore, applyMiddleware }     from 'redux';
-import { NavLink, BrowserRouter as Router } from 'react-router-dom';
+import {
+  createStore,
+  applyMiddleware
+} from 'redux';
+import {
+  NavLink,
+  BrowserRouter as Router
+} from 'react-router-dom';
 
 let store = createStore(reducers, applyMiddleware(promiseMiddleware));
 

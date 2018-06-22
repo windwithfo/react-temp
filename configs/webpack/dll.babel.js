@@ -12,7 +12,15 @@ import FriendlyErrors from 'friendly-errors-webpack-plugin';
 const webpackConfig = {
   mode: 'production',
   entry: {
-    vendor: ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux', 'redux-actions']
+    vendor: [
+      'react',
+      'redux',
+      'react-dom',
+      'react-redux',
+      'redux-actions',
+      'react-loadable',
+      'react-router-dom'
+    ]
   },
   output: {
     path: path.join(__dirname, '../../static'),

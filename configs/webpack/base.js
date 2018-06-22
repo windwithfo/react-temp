@@ -6,31 +6,11 @@
 import path       from 'path';
 import webpack    from 'webpack';
 import config     from '../config';
-import entry      from '../../src/entry';
 import CopyPlugin from 'copy-webpack-plugin';
 import Extract    from 'mini-css-extract-plugin';
 import manifest   from '../../static/vendor-manifest';
 
 const webpackConfig = {
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      cacheGroups: {
-        default: {
-          minChunks: 1,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
-        style: {            
-          name: 'style',
-          test: /\.css/,
-          chunks: 'all',
-          minChunks: 1,
-          enforce: true
-        }
-      }
-    }
-  },
   resolve: {
     modules: [
       'node_modules',
