@@ -13,11 +13,10 @@ const webpackConfig = {
   mode: 'production',
   entry: {
     vendor: [
+      'mobx',
       'react',
-      'redux',
       'react-dom',
-      'react-redux',
-      'redux-actions',
+      'mobx-react',
       'react-loadable',
       'react-router-dom'
     ]

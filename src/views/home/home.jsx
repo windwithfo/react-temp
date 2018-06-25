@@ -1,21 +1,31 @@
 /**
- * @file 详情页
+ * @file 首页
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
-import React       from 'react';
-import action      from './action';
-import { connect } from 'react-redux';
+import React from 'react';
+import {
+  inject,
+  observer
+} from 'mobx-react';
 
+@inject('home')
+@observer
 class Page extends React.Component {
   render() {
-    const { text, disabled, btnClick } = this.props;
+    const { text, disabled, btnCtl } = this.props.home;
+    const btnClick = () => {
+      btnCtl(true);
+      setTimeout(() => {
+        btnCtl();
+      }, 3000);
+    };
     return (
       <div className="home">
         <p className="title">Hello World!</p>
         <p>By Emiya</p>
         <p>page say: {text}</p>
-        <button onClick={btnClick} disabled={disabled}>点我</button>
+        <button onClick={btnClick} disabled={disabled}>点我禁用3秒</button>
 
         <style jsx>{`
           .title {
@@ -27,24 +37,4 @@ class Page extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    text: state.home.text,
-    disabled: state.home.disabled
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    btnClick: () => {
-      dispatch(action.btnControl('disabled'));
-      setTimeout(() => {
-        dispatch(action.btnControl(''));
-      }, 5000);
-    }
-  };
-}
-
-const WarpPage = connect(mapStateToProps, mapDispatchToProps)(Page);
-
-export default WarpPage;
+export default Page;

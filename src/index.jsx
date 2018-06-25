@@ -5,28 +5,26 @@
 
 import 'babel-polyfill';
 import 'asset/style/common';
-import React             from 'react';
-import Routes            from './routes';
-import ReactDom          from 'react-dom';
-import reducers          from './reducers';
-import { Provider }      from 'react-redux';
-import promiseMiddleware from 'redux-promise';
+import React        from 'react';
+import store        from './store';
+import Routes       from './routes';
+import ReactDom     from 'react-dom';
 import {
-  createStore,
-  applyMiddleware
-} from 'redux';
+  observer,
+  Provider
+} from 'mobx-react';
 import {
   NavLink,
   BrowserRouter as Router
 } from 'react-router-dom';
 
-let store = createStore(reducers, applyMiddleware(promiseMiddleware));
+@observer
+class Page extends React.Component {
 
-function Page() {
-  const supportsHistory = 'pushState' in window.history;
+  render () {
+    const supportsHistory = 'pushState' in window.history;
 
-  return (
-    <Provider store={store}>
+    return (
       <Router basename="/" forceRefresh={!supportsHistory}>
         <div className="nav">
           <ul>
@@ -49,8 +47,14 @@ function Page() {
           <Routes/>
         </div>
       </Router>
-    </Provider>
-  );
+    );
+  }
 }
 
-ReactDom.render(<Page/>, document.getElementById('root'));
+const warpPage =
+
+ReactDom.render(
+<Provider {...store}>
+  <Page/>
+</Provider>,
+document.getElementById('root'));

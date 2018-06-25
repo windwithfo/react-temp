@@ -1,20 +1,24 @@
 /**
- * @file 详情页
+ * @file 第一页
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
-import React       from 'react';
-import action      from './action';
-import { connect } from 'react-redux';
+import React from 'react';
+import {
+  inject,
+  observer
+} from 'mobx-react';
 
+@inject('page1')
+@observer
 class Page extends React.Component {
   componentDidMount() {
-    const { init } = this.props;
+    const { init } = this.props.page1;
     setTimeout(init, 2000);
   }
 
   render() {
-    const { text, msg } = this.props;
+    const { text, msg } = this.props.page1;
 
     return (
       <div className="page1">
@@ -32,21 +36,4 @@ class Page extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    text: state.page1.text,
-    msg: state.page1.msg
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    init: () => {
-      dispatch(action.init());
-    }
-  };
-}
-
-const WarpPage = connect(mapStateToProps, mapDispatchToProps)(Page);
-
-export default WarpPage;
+export default Page;

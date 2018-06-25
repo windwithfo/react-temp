@@ -1,5 +1,5 @@
 /**
- * @file 详情页
+ * @file 第二页
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
