@@ -1,10 +1,17 @@
 {
   "presets": [
-    "es2015",
+    ["env", {
+      "targets": {
+        "chrome": 52,
+        "browsers": ["last 2 versions", "safari >= 7"]
+      },
+      "useBuiltIns": true
+    }],
     "react",
     "stage-0"
   ],
   "plugins": [
+    "transform-runtime",
     "transform-decorators-legacy",
     [
       "styled-jsx/babel",
