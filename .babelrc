@@ -21,8 +21,9 @@
       }
     ],
     ["import", {
-      "libraryName": "antd",
-        "style": "true"
+        "libraryName": "axxd",
+        "libraryDirectory": "es",
+        "style": "css"
       }
     ]
   ]

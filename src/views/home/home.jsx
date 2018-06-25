@@ -9,6 +9,10 @@ import {
   observer
 } from 'mobx-react';
 
+import {
+  DatePicker
+} from 'axxd';
+
 @inject('home')
 @observer
 class Page extends React.Component {
@@ -26,6 +30,8 @@ class Page extends React.Component {
         <p>By Emiya</p>
         <p>page say: {text}</p>
         <button onClick={btnClick} disabled={disabled}>点我禁用3秒</button>
+        <br/>
+        <DatePicker/>
 
         <style jsx>{`
           .title {
