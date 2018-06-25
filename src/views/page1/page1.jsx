@@ -3,37 +3,55 @@
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
-import React from 'react';
+import 'babel-polyfill';
+import 'asset/style/common';
+import React        from 'react';
+import store        from './store';
+import ReactDom     from 'react-dom';
 import {
-  inject,
   observer
 } from 'mobx-react';
 
-@inject('page1')
 @observer
 class Page extends React.Component {
-  componentDidMount() {
-    const { init } = this.props.page1;
-    setTimeout(init, 2000);
-  }
-
   render() {
-    const { text, msg } = this.props.page1;
+    const { text, msg } = this.props.store;
 
     return (
-      <div className="page1">
-        <p className="title">{text}</p>
-        <p>By Emiya</p>
-        <p>page say: {msg}</p>
+      <div className="nav">
+        <ul>
+          <li>
+            <a href="index.html">
+              Home
+            </a>
+          </li>
+          <li>
+            <a className="active" href="page1.html">
+              Page1
+            </a>
+          </li>
+          <li>
+            <a href="page2.html?id=123">
+              Page2
+            </a>
+          </li>
+        </ul>
+        <div className="page1">
+          <p className="title">{text}</p>
+          <p>By Emiya</p>
+          <p>page say: {msg}</p>
 
-        <style jsx>{`
-          .title {
-            color: #f0f;
-          }
-        `}</style>
+          <style jsx>{`
+            .title {
+              color: #f0f;
+            }
+          `}</style>
+        </div>
       </div>
     );
   }
 }
 
-export default Page;
+ReactDom.render(<Page store={store}/>, document.getElementById('root'));
+
+

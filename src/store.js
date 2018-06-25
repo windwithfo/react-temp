@@ -3,11 +3,8 @@
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
-import HomeStore  from 'view/home/store';
-import Page1Store from 'view/page1/store';
-
 import {
-  computed,
+  action,
   configure,
   observable
 } from 'mobx';
@@ -15,9 +12,12 @@ import {
 configure({ enforceActions: true });
 
 class appStore {
-  constructor() {
-    this.home = new HomeStore(this);
-    this.page1 = new Page1Store(this);
+  text = 'home';
+  @observable disabled: ''
+
+  @action
+  btnCtl = (flag = false) => {
+    this.disabled = flag ? 'disabled' : '';
   }
 };
 

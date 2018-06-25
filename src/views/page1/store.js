@@ -11,10 +11,6 @@ import {
 } from 'mobx';
 
 class Page1Store {
-  constructor(root) {
-    this.root = root;
-  }
-
   text = 'Hello World!';
   @observable msg = 'init';
 
@@ -53,4 +49,6 @@ class Page1Store {
   }
 }
 
-export default Page1Store;
+const store = new Page1Store();
+
+export default store;

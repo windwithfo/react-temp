@@ -11,7 +11,7 @@ const config = {
     index: path.resolve(__dirname, '../dist/index.html'),
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsPublicPath: '/',
+    assetsPublicPath: '',
     // Source Maps
     productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production

@@ -5,12 +5,14 @@
 
 import path       from 'path';
 import webpack    from 'webpack';
+import entry      from '../entry';
 import config     from '../config';
 import CopyPlugin from 'copy-webpack-plugin';
 import Extract    from 'mini-css-extract-plugin';
 import manifest   from '../../static/vendor-manifest';
 
 const webpackConfig = {
+  entry: entry,
   resolve: {
     modules: [
       'node_modules',
@@ -18,6 +20,7 @@ const webpackConfig = {
       path.resolve(__dirname, '../../node_modules')
     ],
     alias: {
+      '~': 'src',
       component: 'src/components',
       asset: 'src/assets',
       view: 'src/views'

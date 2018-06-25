@@ -5,6 +5,7 @@
 
 import Chalk          from 'chalk';
 import baseConfig     from './base';
+import entry          from '../entry';
 import config         from '../config';
 import merge          from 'webpack-merge';
 import Html           from 'html-webpack-plugin';
@@ -44,23 +45,26 @@ const webpackConfig = merge(baseConfig, {
       format: '  :bar ' + Chalk.green.bold(':percent') + ' :msg',
       clear: false
     }),
-    new Html({
-      filename: config.build.index,
-      template: 'index.html',
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      },
-      chunksSortMode: 'dependency'
-    }),
     new Extract({
       filename: 'css/app.[name].css',
       chunkFilename: 'css/app.[contenthash:12].css'
     })
   ]
 });
+
+for (const page in entry) {
+  webpackConfig.plugins.push(
+    new Html({
+      filename: page + '.html',
+      template: 'index.html',
+      inject: true,
+      excludeChunks: Object.keys(entry).filter(function (item) {
+        return (item !== page);
+      }),
+      chunksSortMode: 'dependency'
+    })
+  );
+}
 
 if (config.build.bundleAnalyzerReport) {
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;

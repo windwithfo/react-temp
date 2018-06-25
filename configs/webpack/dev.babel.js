@@ -7,6 +7,7 @@ import path           from 'path';
 import Chalk          from 'chalk';
 import baseConfig     from './base';
 import webpack        from 'webpack';
+import entry          from '../entry';
 import config         from '../config';
 import merge          from 'webpack-merge';
 import Html           from 'html-webpack-plugin';
@@ -82,11 +83,6 @@ const webpackConfig = merge(baseConfig, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new Html({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true
-    }),
     new FriendlyErrors(),
     new ProgressBar({
       complete: Chalk.green('█'),
@@ -110,6 +106,19 @@ const webpackConfig = merge(baseConfig, {
 if (config.build.bundleAnalyzerReport) {
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
+}
+
+for (const page in entry) {
+  webpackConfig.plugins.push(
+    new Html({
+      filename: page + '.html',
+      template: 'index.html',
+      inject: true,
+      excludeChunks: Object.keys(entry).filter(function (item) {
+        return (item !== page);
+      }),
+    })
+  );
 }
 
 export default webpackConfig;
