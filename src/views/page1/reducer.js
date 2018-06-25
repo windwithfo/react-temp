@@ -12,7 +12,7 @@ const defaultState = {
 
 const reducer = handleActions({
   [combineActions('FETCH_DATA', 'INIT')]: (state, action) => {
-    return { ...state, ...action.payload.data };
+    return { ...state, ...action.payload };
   }
 }, defaultState);
 

@@ -4,13 +4,21 @@ A porject as template for cli
 
 Usage Example
 ===
-Init
+Install dependencies
 
     npm install
+
+Init project (build dll)
+
+    npm run init
 
 Run develop
 
     npm start
+
+Build project
+
+    npm run pub
 
 
 Config

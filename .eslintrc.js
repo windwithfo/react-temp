@@ -163,6 +163,11 @@ module.exports = {
     }],
     'import/extensions': 0,
     // 是否可以直接返回一个await结果
-    'no-return-await': 0
+    'no-return-await': 0,
+    // 建议使用const
+    "prefer-const": ["error", {
+      "destructuring": "any",
+      "ignoreReadBeforeAssign": false
+    }]
   }
 }

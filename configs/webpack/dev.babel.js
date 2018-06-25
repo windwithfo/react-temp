@@ -72,11 +72,11 @@ const webpackConfig = merge(baseConfig, {
     watchOptions: {
       poll: config.dev.poll
     },
-    // before(app) {
-    //   app.get('/env', function (req, res) {
-    //     res.json({ env: 'dev' });
-    //   });
-    // }
+    before(app) {
+      app.get('/api/page1.json', function (req, res) {
+        res.json({ env: 'dev' });
+      });
+    }
   },
   // 插件项
   plugins: [

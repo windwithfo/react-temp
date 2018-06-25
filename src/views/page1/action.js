@@ -24,6 +24,7 @@ const actions = createActions({
     try {
       ret = await fetch('/api/page1.json')
         .then((response) => response.json());
+      ret.msg = ret.env;
       return ret;
     }
     catch (error) {
