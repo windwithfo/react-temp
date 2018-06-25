@@ -3,7 +3,6 @@
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
-import 'babel-polyfill';
 import 'asset/style/common';
 import React        from 'react';
 import ReactDom     from 'react-dom';
