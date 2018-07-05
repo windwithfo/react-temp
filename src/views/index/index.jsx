@@ -3,7 +3,7 @@
  * @author dongkunshan(windwithfo@yeah.net)
  */
 
-import 'asset/style/common';
+import 'asset/style/common.less';
 import React        from 'react';
 import store        from './store';
 import ReactDom     from 'react-dom';
@@ -13,7 +13,7 @@ import {
 
 @observer
 class Page extends React.Component {
-  render () {
+  render() {
     const { text, disabled, btnCtl } = this.props.store;
 
     const btnClick = () => {

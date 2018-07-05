@@ -56,7 +56,7 @@ for (const page in entry) {
   webpackConfig.plugins.push(
     new Html({
       filename: page + '.html',
-      template: 'index.html',
+      template: entry[page].replace('.jsx', '.html'),
       inject: true,
       excludeChunks: Object.keys(entry).filter(function (item) {
         return (item !== page);

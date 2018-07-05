@@ -11,16 +11,16 @@ import {
 
 configure({ enforceActions: true });
 
-class appStore {
+class AppStore {
   text = 'home';
-  @observable disabled: ''
+  @observable disabled = '';
 
   @action
   btnCtl = (flag = false) => {
     this.disabled = flag ? 'disabled' : '';
   }
-};
+}
 
-const store = new appStore();
+const store = new AppStore();
 
 export default store;
