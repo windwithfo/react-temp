@@ -11,8 +11,13 @@ import CopyPlugin from 'copy-webpack-plugin';
 import Extract    from 'mini-css-extract-plugin';
 import manifest   from '../../static/vendor-manifest';
 
+const entrys = {};
+Object.keys(entry).forEach((item) => {
+  entrys[item] = entry[item].path;
+});
+
 const webpackConfig = {
-  entry: entry,
+  entry: entrys,
   resolve: {
     modules: [
       'node_modules',
