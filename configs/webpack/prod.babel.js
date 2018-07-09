@@ -35,6 +35,11 @@ const webpackConfig = merge(baseConfig, {
   performance: {
     hints: false
   },
+  stats: {
+    children: false,
+    chunks: false,
+    modules: false
+  },
   // 插件项
   plugins: [
     new FriendlyErrors(),
